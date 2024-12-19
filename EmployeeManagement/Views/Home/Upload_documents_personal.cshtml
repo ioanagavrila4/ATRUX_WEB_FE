@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Personal Documents:</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+         .sidebar {
+            position: fixed; /* Fix the sidebar in place */
+            top: 57px; /* Adjust this value to match the header's height */
+            left: 0;
+            height: calc(100vh - 57px); /* Full height minus the header height */
+            width: 360px;
+            background-color: white; /* Keep the same background */
+            border-right: 1px solid lightgray;
+        }
+
+       .main-content {
+            margin-left: 360px; /* Leave space on the left for the sidebar */
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to main content */
+        }
+        .main-content-rest{
+            margin-left: 360px; /* Adjust based on sidebar width */
+            
+            
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px; /* Header height */
+            background-color: white;
+            border-bottom: 1px solid lightgray;
+            z-index: 1000; /* Ensure it stays on top */
+        }
+        .sidebar a {
+            color: #000000; /* Black text for links */
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to links */
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px; /* Header height */
+            background-color: white;
+            border-bottom: 1px solid lightgray;
+            z-index: 1000; /* Ensure it stays on top */
+        }
+        .sidebar a {
+            color: #000000; /* Black text for links */
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to links */
+        }
+        .sidebar a:hover {
+            background-color: #f0f0f0; /* Light gray hover effect */
+        }
+       .active-link {
+            background-color: #668afd; /* Highlight active link with blue */
+            color: white; /* White text for active link */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h4 class="text-center mb-4" style="color: #020202; font-family: 'Montserrat';">Menu</h4>
+            <a href="/home/dashboard">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+                    <path d="M13.9103 3.86308V10.0313C13.909 10.7995 13.6805 11.5502 13.2537 12.1889C12.8268 12.8276 12.2206 13.3259 11.5113 13.6209C11.042 13.8145 10.5389 13.9129 10.0313 13.9103H3.86311C2.8371 13.9061 1.85455 13.4955 1.13054 12.7685C0.406529 12.0415 3.67446e-05 11.0573 4.53614e-05 10.0313V3.87897C3.67446e-05 2.85296 0.406529 1.86872 1.13054 1.14173C1.85455 0.414737 2.8371 0.004205 3.86311 1.36991e-10H10.0313C11.0573 -8.6167e-06 12.0415 0.406485 12.7685 1.1305C13.4955 1.85451 13.9061 2.83707 13.9103 3.86308ZM31 3.87897V10.0313C31.0024 10.5391 30.9039 11.0424 30.7101 11.5118C30.5164 11.9812 30.2312 12.4074 29.8712 12.7656C29.5161 13.1308 29.0908 13.4204 28.6209 13.6171C28.1511 13.8138 27.6463 13.9135 27.1369 13.9103H20.9687C20.2023 13.9093 19.4532 13.6822 18.8152 13.2574C18.1773 12.8327 17.6788 12.2292 17.3823 11.5225C17.1857 11.05 17.0863 10.5429 17.0897 10.0313V3.87897C17.0876 3.36977 17.1879 2.86533 17.3845 2.39562C17.5811 1.9259 17.8701 1.50048 18.2344 1.14462C18.5918 0.782486 19.0175 0.494857 19.4869 0.298382C19.9562 0.101907 20.4599 0.00048887 20.9687 1.36991e-10H27.1369C28.1629 0.004205 29.1454 0.414737 29.8695 1.14173C30.5935 1.86872 31 2.85296 31 3.87897ZM13.9103 20.9846V27.1369C13.9061 28.1629 13.4955 29.1455 12.7685 29.8695C12.0415 30.5935 11.0573 31 10.0313 31H3.86311C2.83869 30.998 1.85631 30.5925 1.12876 29.8713C0.768791 29.5131 0.48363 29.0868 0.289859 28.6174C0.0960882 28.148 -0.00242574 27.6448 4.53614e-05 27.1369V20.9846C-0.00242574 20.4768 0.0960882 19.9735 0.289859 19.5041C0.48363 19.0347 0.768791 18.6085 1.12876 18.2503C1.85309 17.5203 2.83486 17.1036 3.86311 17.0897H10.0313C11.0602 17.0981 12.0444 17.5116 12.7705 18.2407C13.4966 18.9698 13.9061 19.9557 13.9103 20.9846ZM31 24.0528C30.9968 25.4255 30.5871 26.7665 29.8225 27.9065C29.058 29.0465 27.9728 29.9345 26.704 30.4583C25.4352 30.9821 24.0397 31.1184 22.6936 30.8498C21.3475 30.5813 20.111 29.9199 19.1404 28.9493C18.1698 27.9787 17.5085 26.7423 17.2399 25.3961C16.9714 24.05 17.1076 22.6545 17.6314 21.3857C18.1553 20.1169 19.0432 19.0317 20.1833 18.2672C21.3233 17.5026 22.6642 17.0929 24.0369 17.0897C25.4143 17.0936 26.76 17.504 27.9051 18.2696C29.0502 19.0352 29.9438 20.1218 30.4738 21.3932C30.8235 22.2357 31.0015 23.1403 31 24.0528Z" fill="#8E8E93"/>
+                </svg>
+
+                Dashboard
+            </a>
+            <a href="/home/messages">
+            
+            <svg class ="icon"  xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M0 25.1283V2.90669C0 2.13579 0.304364 1.39646 0.846136 0.851349C1.38791 0.306239 2.12271 0 2.88889 0H23.1111C23.8773 0 24.6121 0.306239 25.1539 0.851349C25.6956 1.39646 26 2.13579 26 2.90669V17.4401C26 18.211 25.6956 18.9504 25.1539 19.4955C24.6121 20.0406 23.8773 20.3468 23.1111 20.3468H7.16589C6.73289 20.3469 6.30545 20.4449 5.91516 20.6335C5.52488 20.8222 5.18173 21.0967 4.91111 21.4368L1.54411 25.6719C1.43206 25.8132 1.27914 25.9159 1.1065 25.9659C0.933863 26.016 0.750041 26.0108 0.580465 25.9511C0.410889 25.8914 0.263942 25.7801 0.15995 25.6327C0.0559594 25.4853 6.5215e-05 25.3091 0 25.1283Z" fill="#8E8E93"/>
+            </svg>
+            Messages</a>
+            <a href="/home/schedule">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+                    <path d="M15.5 0C13.4645 0 11.449 0.400919 9.56841 1.17987C7.68786 1.95882 5.97915 3.10054 4.53984 4.53984C1.63303 7.44666 0 11.3891 0 15.5C0 19.6109 1.63303 23.5533 4.53984 26.4602C5.97915 27.8995 7.68786 29.0412 9.56841 29.8201C11.449 30.5991 13.4645 31 15.5 31C19.6109 31 23.5533 29.367 26.4602 26.4602C29.367 23.5533 31 19.6109 31 15.5C31 13.4645 30.5991 11.449 29.8201 9.56841C29.0412 7.68786 27.8995 5.97915 26.4602 4.53984C25.0208 3.10054 23.3121 1.95882 21.4316 1.17987C19.551 0.400919 17.5355 0 15.5 0ZM22.01 22.01L13.95 17.05V7.75H16.275V15.81L23.25 19.995L22.01 22.01Z" fill="#8E8E93"/>
+                </svg>
+                Schedule
+            </a>
+            <a href="/home/employees">
+                <svg class = "icon" xmlns="http://www.w3.org/2000/svg" width="31" height="25" viewBox="0 0 31 25" fill="none">
+                    <path d="M9.57409 12.037C11.146 12.037 12.6535 11.4029 13.765 10.2743C14.8765 9.14556 15.5009 7.61473 15.5009 6.01852C15.5009 4.42231 14.8765 2.89147 13.765 1.76278C12.6535 0.634092 11.146 0 9.57409 0C8.0022 0 6.49469 0.634092 5.3832 1.76278C4.2717 2.89147 3.64727 4.42231 3.64727 6.01852C3.64727 7.61473 4.2717 9.14556 5.3832 10.2743C6.49469 11.4029 8.0022 12.037 9.57409 12.037ZM19.9451 21.5648C20.9116 21.9667 22.1408 22.2222 23.7055 22.2222C31 22.2222 31 16.6667 31 16.6667C31 15.9303 30.7121 15.224 30.1994 14.7031C29.6868 14.1823 28.9915 13.8894 28.2664 13.8889H19.8266C20.5433 14.7704 20.9736 15.8981 20.9736 17.1296V17.7889C20.9698 17.9448 20.9594 18.1005 20.9426 18.2556C20.8185 19.4124 20.4788 20.5351 19.9451 21.5648ZM28.2664 7.40741C28.2664 8.63526 27.786 9.81283 26.931 10.681C26.076 11.5493 24.9164 12.037 23.7073 12.037C22.4981 12.037 21.3385 11.5493 20.4835 10.681C19.6285 9.81283 19.1482 8.63526 19.1482 7.40741C19.1482 6.17955 19.6285 5.00199 20.4835 4.13376C21.3385 3.26554 22.4981 2.77778 23.7073 2.77778C24.9164 2.77778 26.076 3.26554 26.931 4.13376C27.786 5.00199 28.2664 6.17955 28.2664 7.40741ZM0 17.5926C0 16.6103 0.384265 15.6683 1.06826 14.9737C1.75226 14.2791 2.67996 13.8889 3.64727 13.8889H15.5009C16.4682 13.8889 17.3959 14.2791 18.0799 14.9737C18.7639 15.6683 19.1482 16.6103 19.1482 17.5926C19.1482 17.5926 19.1482 25 9.57409 25C0 25 0 17.5926 0 17.5926Z" fill="#8E8E93"/>
+                </svg>
+                Employees
+            </a>
+            <a href ='/Home/Drivers'>
+            <svg  class = "icon"  xmlns="http://www.w3.org/2000/svg" width="31" height="33" viewBox="0 0 31 33" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 0C24.0607 0 31 6.93935 31 15.5C31 24.0607 24.0607 31 15.5 31C6.93935 31 0 24.0607 0 15.5C0 6.93935 6.93935 0 15.5 0ZM3.41775 18.3055C3.96018 20.6342 5.1635 22.7567 6.8831 24.418C8.60271 26.0793 10.7654 27.2088 13.1114 27.6706C12.8123 23.6018 11.4746 21.1606 9.78515 19.8106C8.16695 18.5163 5.97215 18.0157 3.41775 18.304V18.3055ZM21.2149 19.809C19.5254 21.1622 18.1877 23.6018 17.8886 27.6706C20.2348 27.2087 22.3976 26.079 24.1173 24.4174C25.8369 22.7558 27.0401 20.6329 27.5823 18.304C25.0279 18.0157 22.8331 18.5163 21.2149 19.8106V19.809ZM15.5 3.1C12.6108 3.09949 9.81217 4.10786 7.58727 5.951C5.36238 7.79414 3.85092 10.3563 3.3139 13.1951L3.24725 13.5795L6.67275 12.8944C7.57485 12.7146 8.432 12.2388 9.3899 11.5925L10.1292 11.0779C11.3646 10.2006 13.1952 9.3 15.5 9.3C17.6514 9.3 19.389 10.0843 20.615 10.9027L21.6101 11.5925C22.4471 12.1582 23.2097 12.5922 23.9909 12.8139L24.3272 12.8944L27.7528 13.5795C27.2949 10.659 25.8087 7.99805 23.5621 6.07656C21.3154 4.15506 18.4563 3.09944 15.5 3.1Z" fill="#8E8E93"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.6279 32.1471L15.6137 32.1497L15.522 32.1949L15.4961 32.2001L15.478 32.1949L15.3863 32.1497C15.3726 32.1454 15.3622 32.1475 15.3553 32.1562L15.3502 32.1691L15.3282 32.7219L15.3347 32.7477L15.3476 32.7645L15.4819 32.8601L15.5013 32.8653L15.5168 32.8601L15.6511 32.7645L15.6666 32.7439L15.6718 32.7219L15.6498 32.1704C15.6464 32.1566 15.6391 32.1488 15.6279 32.1471ZM15.9702 32.0012L15.9534 32.0037L15.7144 32.1239L15.7015 32.1368L15.6976 32.151L15.7209 32.7064L15.7273 32.7219L15.7377 32.7309L15.9973 32.8511C16.0137 32.8554 16.0261 32.8519 16.0347 32.8407L16.0399 32.8227L15.996 32.0296C15.9917 32.0141 15.9831 32.0046 15.9702 32.0012ZM15.0466 32.0037C15.0409 32.0003 15.0341 31.9992 15.0276 32.0006C15.0211 32.0021 15.0154 32.006 15.0117 32.0115L15.004 32.0296L14.9601 32.8227C14.9609 32.8382 14.9683 32.8485 14.982 32.8537L15.0014 32.8511L15.261 32.7309L15.274 32.7206L15.2791 32.7064L15.3011 32.151L15.2972 32.1355L15.2843 32.1226L15.0466 32.0037Z" fill="#8E8E93"/>
+    </svg>
+
+
+
+                Drivers
+            </a>
+            <a href="/home/notifications">
+            <svg  class = "icon"  xmlns="http://www.w3.org/2000/svg" width="31" height="36" viewBox="0 0 31 36" fill="none">
+                <path d="M15.5 1.20619e-07C15.0726 -0.000118154 14.65 0.0867465 14.2604 0.254829C13.8707 0.422911 13.5229 0.668366 13.24 0.974902C12.9571 1.28144 12.7456 1.64204 12.6194 2.03278C12.4933 2.42352 12.4555 2.83546 12.5085 3.24125C9.91504 3.87688 7.61648 5.3204 5.97531 7.34418C4.33413 9.36796 3.4437 11.8569 3.44444 14.4184V25.9531H1.72222C1.26546 25.9531 0.827406 26.1267 0.504427 26.4357C0.181448 26.7448 0 27.1639 0 27.6009C0 28.0379 0.181448 28.4571 0.504427 28.7661C0.827406 29.0751 1.26546 29.2487 1.72222 29.2487H29.2778C29.7345 29.2487 30.1726 29.0751 30.4956 28.7661C30.8186 28.4571 31 28.0379 31 27.6009C31 27.1639 30.8186 26.7448 30.4956 26.4357C30.1726 26.1267 29.7345 25.9531 29.2778 25.9531H27.5556V14.4184C27.5563 11.8569 26.6659 9.36796 25.0247 7.34418C23.3835 5.3204 21.085 3.87688 18.4915 3.24125C18.5053 3.12481 18.5127 3.00562 18.5139 2.88368C18.5139 2.11888 18.1964 1.3854 17.6311 0.84461C17.0659 0.303815 16.2993 1.20619e-07 15.5 1.20619e-07ZM15.5 35.84C14.1297 35.84 12.8156 35.3192 11.8466 34.3921C10.8777 33.465 10.3333 32.2076 10.3333 30.8966H20.6667C20.6667 32.2076 20.1223 33.465 19.1534 34.3921C18.1844 35.3192 16.8703 35.84 15.5 35.84Z" fill="#8E8E93"/>
+            </svg>
+
+
+
+
+                Notifications
+            </a>
+        </div>
+
+
+    <div class="main-content">
+        <h2>Upload Document</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="document" class="form-label">Choose Document</label>
+                <input type="file" class="form-control" id="document" name="document" required>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Document Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Document title">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+
+        <div id="responseMessage" class="mt-3"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Event listener for the form submission
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Retrieve the auth token from localStorage
+            const authToken = localStorage.getItem('auth_token');
+            if (!authToken) {
+                document.getElementById('responseMessage').innerHTML = "<div class='alert alert-danger'>You are not logged in. Please log in to upload documents.</div>";
+                return;
+            }
+
+            // Prepare the form data
+            let formData = new FormData();
+            formData.append('document', document.getElementById('document').files[0]);
+            formData.append('title', document.getElementById('title').value);
+
+            // Send the AJAX request to the backend (Heroku URL)
+            fetch('https://atrux-717ecf8763ea.herokuapp.com/upload_documents/', {
+                method: 'PUT',
+                body: formData,
+                headers: {
+                    'Authorization': `Token ${authToken}`, // Include the auth token in the Authorization header
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // If the response status is not ok (e.g., 400, 401, 404, etc.)
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json(); // Parse the JSON response
+            })
+            .then(data => {
+                // Check if the response indicates success
+                if (data.success) {
+                    document.getElementById('responseMessage').innerHTML = "<div class='alert alert-success'>Document uploaded successfully!</div>";
+                } else {
+                    document.getElementById('responseMessage').innerHTML = "<div class='alert alert-danger'>Error: " + data.error + "</div>";
+                }
+            })
+            .catch(error => {
+    let errorMessage = "";
+    
+    // Check if the error is an object or string and extract a meaningful message
+    if (error instanceof Error) {
+        errorMessage = `An error occurred: ${error.message}`;
+    } else if (typeof error === 'string') {
+        errorMessage = `Error: ${error}`;
+    } else {
+        // If the error doesn't match known types, log the whole object
+        errorMessage = `Unknown error: ${JSON.stringify(error)}`;
+    }
+
+    // Display the error message on the page
+    document.getElementById('responseMessage').innerHTML = `<div class='alert alert-danger'>${errorMessage}</div>`;
+    console.error('Request failed:', error);
+});
+
+        });
+    </script>
+</body>
+</html>
